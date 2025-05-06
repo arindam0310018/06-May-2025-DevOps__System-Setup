@@ -1,5 +1,8 @@
 # DevOps System Setup:-
 
+| Windows System on which below was Installed: Microsoft Windows Server 2022 Datacenter Azure Edition. |
+| --------- |
+
 1. __Install Chocolatey on Windows.__
 
 | Reference Link: https://chocolatey.org/install |
