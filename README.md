@@ -31,6 +31,8 @@ choco --version
 | Reference Link: https://learn.microsoft.com/en-us/windows/package-manager/winget/ |
 | --------- |
 
+## Refer to the Github Link where I have raised issue - https://github.com/asheroto/winget-install/issues/64 
+
 ```
 Install-PackageProvider -Name NuGet -Force
 Install-Module -Name Microsoft.WinGet.Client -Force -Repository PSGallery
@@ -155,6 +157,58 @@ Downloading https://github.com/PowerShell/PowerShell/releases/download/v7.5.1/Po
 Successfully verified installer hash
 Starting package install...
 Successfully installed
+
+PS C:\Users\amadmin>
+```
+
+9. __Install Google Chrome on Windows.__
+
+| Reference Link: https://community.chocolatey.org/packages/GoogleChrome |
+| --------- |
+
+## Scroll down and refer to the comment Section. I have updated all below details.
+
+```
+choco install googlechrome -y --ignore-checksums
+```
+
+| Google Chrome ERROR Installation Logs:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> choco install googlechrome
+
+Chocolatey v2.4.3
+Installing the following packages:
+googlechrome
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+Progress: Downloading GoogleChrome 135.0.7049.96... 100%
+
+GoogleChrome v135.0.7049.96 [Approved]
+GoogleChrome package files install completed. Performing other installation steps.
+The package GoogleChrome wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint): A
+
+Downloading googlechrome 64 bit
+  from 'https://dl.google.com/dl/chrome/install/googlechromestandaloneenterprise64.msi'
+Progress: 100% - Completed download of C:\Users\amadmin\AppData\Local\Temp\chocolatey\GoogleChrome\135.0.7049.96\googlechromestandaloneenterprise64.msi (128.07 MB).
+Download of googlechromestandaloneenterprise64.msi (128.07 MB) completed.
+Error - hashes do not match. Actual value was '3DA6536F05FC2121310CFD768F168BD759DE5CDC69F1D05DD14A1B6A67370250'.
+ERROR: Checksum for 'C:\Users\amadmin\AppData\Local\Temp\chocolatey\GoogleChrome\135.0.7049.96\googlechromestandaloneenterprise64.msi' did not meet '020d946e9d3be75242f672830f6b6dd335d49aa34e5030864690e539b579f176' for checksum type 'sha256'. Consider passing the actual checksums through with --checksum --checksum64 once you validate the checksums are appropriate. A less secure option is to pass --ignore-checksums if necessary.
+The install of GoogleChrome was NOT successful.
+Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
+
+Chocolatey installed 0/1 packages. 1 packages failed.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Failures
+ - GoogleChrome (exited -1) - Error while running 'C:\ProgramData\chocolatey\lib\GoogleChrome\tools\chocolateyInstall.ps1'.
+ See log for details.
 
 PS C:\Users\amadmin>
 ```
