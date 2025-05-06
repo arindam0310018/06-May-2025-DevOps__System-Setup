@@ -166,7 +166,7 @@ PS C:\Users\amadmin>
 | Reference Link: https://community.chocolatey.org/packages/GoogleChrome |
 | --------- |
 
-## Scroll down and refer to the comment Section. I have updated all below details.
+<span style="color:red">Click on the above Link, Scroll down and refer to the comment Section. I have updated all below details there as well.</span>
 
 ```
 choco install googlechrome -y --ignore-checksums
