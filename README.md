@@ -66,6 +66,7 @@ choco install git.install
 
 | Git Configuration after Installation:- |
 | --------- |
+| __Reference Link:__ https://git-scm.com/book/ms/v2/Getting-Started-First-Time-Git-Setup |
 
 ```
 git config --list
