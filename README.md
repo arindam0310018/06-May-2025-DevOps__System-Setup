@@ -18,9 +18,9 @@
 | 7. AzCLI. |
 | 8. Powrshell Core. |
 | 9. Google Chrome. |
-| 10. kubectl. |
-| 11. Helm. |
-| 12. Kubadmin. |
+| 10. Kubectl. |
+| 11. Kubeadmin. |
+| 12. Helm. |
 
 1. __Install Chocolatey on Windows.__
 
@@ -234,6 +234,264 @@ PS C:\Users\amadmin>
 
 ```
 choco install googlechrome -y --ignore-checksums
+```
+
+10. __Install Kubectl on Windows.__
+
+| Reference Link: https://community.chocolatey.org/packages/kubernetes-cli |
+| --------- |
+
+```
+choco install kubernetes-cli
+```
+
+| Kubectl Installation Logs:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> choco install kubernetes-cli
+
+Chocolatey v2.4.3
+Installing the following packages:
+kubernetes-cli
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+Progress: Downloading kubernetes-cli 1.33.0... 100%
+
+kubernetes-cli v1.33.0 [Approved]
+kubernetes-cli package files install completed. Performing other installation steps.
+The package kubernetes-cli wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint): A
+
+Extracting 64-bit C:\ProgramData\chocolatey\lib\kubernetes-cli\tools\kubernetes-client-windows-amd64.tar.gz to C:\ProgramData\chocolatey\lib\kubernetes-cli\tools...
+C:\ProgramData\chocolatey\lib\kubernetes-cli\tools
+Extracting 64-bit C:\ProgramData\chocolatey\lib\kubernetes-cli\tools\kubernetes-client-windows-amd64.tar to C:\ProgramData\chocolatey\lib\kubernetes-cli\tools...
+C:\ProgramData\chocolatey\lib\kubernetes-cli\tools
+ ShimGen has successfully created a shim for kubectl-convert.exe
+ ShimGen has successfully created a shim for kubectl.exe
+ The install of kubernetes-cli was successful.
+  Deployed to 'C:\ProgramData\chocolatey\lib\kubernetes-cli\tools'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+PS C:\Users\amadmin>
+
+```
+
+| Validate Post Installation:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> kubectl version --client
+Client Version: v1.33.0
+Kustomize Version: v5.6.0
+PS C:\Users\amadmin>
+```
+
+11. __Install kubelogin on Windows.__
+
+| Reference Link: https://community.chocolatey.org/packages/kubelogin  |
+| --------- |
+
+🔥 Important Note: __Refer to the below chocolatey community, Stackoverflow & Github Link where I have provided my solution on the issue encountered.__
+
+- https://community.chocolatey.org/packages/kubelogin
+
+- https://stackoverflow.com/questions/74702519/executable-kubelogin-failed-with-exit-code-1/79626355#79626355
+ 
+- https://github.com/Azure/kubelogin/issues/544
+
+- https://github.com/Azure/kubelogin/issues/139
+
+- https://github.com/lensapp/lens/issues/7956
+
+```
+choco install kubelogin
+```
+
+| Kubelogin Installation Logs:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> choco install kubelogin
+Chocolatey v2.4.3
+Installing the following packages:
+kubelogin
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+Progress: Downloading kubelogin 1.32.4... 100%
+
+kubelogin v1.32.4 [Approved]
+kubelogin package files install completed. Performing other installation steps.
+The package kubelogin wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint): A
+
+Extracting 64-bit C:\ProgramData\chocolatey\lib\kubelogin\tools\kubelogin_windows_amd64.zip to C:\ProgramData\chocolatey\lib\kubelogin\tools...
+C:\ProgramData\chocolatey\lib\kubelogin\tools
+Added C:\ProgramData\chocolatey\bin\kubectl-oidc_login.exe shim pointed to '..\lib\kubelogin\tools\kubelogin.exe'.
+ ShimGen has successfully created a shim for kubelogin.exe
+ The install of kubelogin was successful.
+  Deployed to 'C:\ProgramData\chocolatey\lib\kubelogin\tools'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\amadmin>
+```
+
+
+| Kubelogin ERROR Logs:- |
+| --------- |
+
+__AKS uses kubelogin plugin for authentication.__
+
+> kubelogin convert-kubeconfig -l azurecli
+```
+PS C:\Users\amadmin> kubelogin convert-kubeconfig -l azurecli
+error: unknown shorthand flag: 'l' in -l
+```
+
+| Troubleshooting:- |
+| --------- |
+
+Uninstall kubelogin using choco.
+> choco uninstall kubelogin -y
+```
+PS C:\Users\amadmin> choco uninstall kubelogin -y
+Chocolatey v2.4.3
+Uninstalling the following packages:
+kubelogin
+
+kubelogin v1.32.4
+Removing shim C:\ProgramData\chocolatey\bin\kubectl-oidc_login.exe which pointed to ''.
+ Skipping auto uninstaller - No registry snapshot.
+ kubelogin has been successfully uninstalled.
+
+Chocolatey uninstalled 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\amadmin>
+```
+
+__Install kubelogin using Azure Github: https://azure.github.io/kubelogin/install.html__
+
+> winget install --id=Microsoft.Azure.Kubelogin  -e
+
+```
+PS C:\Users\amadmin> winget install --id=Microsoft.Azure.Kubelogin  -e
+Found Microsoft Azure Kubelogin [Microsoft.Azure.Kubelogin] Version 0.2.8
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+Downloading https://github.com/Azure/kubelogin/releases/download/v0.2.8/kubelogin-win-amd64.zip
+  ██████████████████████████████  23.4 MB / 23.4 MB
+Successfully verified installer hash
+Extracting archive...
+Successfully extracted archive
+Starting package install...
+Command line alias added: "kubelogin"
+Successfully installed
+PS C:\Users\amadmin>
+```
+
+| Validate Post Installation:- |
+| --------- |
+
+> kubelogin --version
+```
+PS C:\Users\amadmin> kubelogin --version
+kubelogin version
+git hash: v0.2.8/d7f1c16c95cc0a1a3beb056374def7b744a38b3a
+Go version: go1.23.7
+Build time: 2025-04-25T17:17:57Z
+Platform: windows/amd64
+PS C:\Users\amadmin>
+```
+
+__Get Credentials:-__
+
+> az aks get-credentials --resource-group AM-CrossPlane-RG --name AM-Crossplane-AKS --overwrite-existing
+
+```
+PS C:\Users\amadmin> az aks get-credentials --resource-group AM-CrossPlane-RG --name AM-Crossplane-AKS --overwrite-existing
+Merged "AM-Crossplane-AKS" as current context in C:\Users\amadmin\.kube\config
+PS C:\Users\amadmin>
+```
+
+__Use kubelogin plugin for authentication:-__
+
+> kubelogin convert-kubeconfig -l azurecli
+```
+PS C:\Users\amadmin> kubelogin convert-kubeconfig -l azurecli
+PS C:\Users\amadmin>
+```
+
+> kubectl get nodes
+```
+PS C:\Users\amadmin> kubectl get nodes
+NAME                                STATUS   ROLES    AGE    VERSION
+aks-agentpool-99335204-vmss000000   Ready    <none>   3h7m   v1.31.7
+PS C:\Users\amadmin>
+```
+
+12. __Install Helm on Windows.__
+
+| Reference Link: https://community.chocolatey.org/packages/kubernetes-helm |
+| --------- |
+
+```
+choco install kubernetes-helm
+```
+
+| Kubectl Installation Logs:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> choco install kubernetes-helm
+Chocolatey v2.4.3
+Installing the following packages:
+kubernetes-helm
+By installing, you accept licenses for the packages.
+Downloading package from source 'https://community.chocolatey.org/api/v2/'
+Progress: Downloading kubernetes-helm 3.17.3... 100%
+
+kubernetes-helm v3.17.3 [Approved]
+kubernetes-helm package files install completed. Performing other installation steps.
+The package kubernetes-helm wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint): A
+
+Downloading kubernetes-helm 64 bit
+  from 'https://get.helm.sh/helm-v3.17.3-windows-amd64.zip'
+Progress: 100% - Completed download of C:\Users\amadmin\AppData\Local\Temp\2\chocolatey\kubernetes-helm\3.17.3\helm-v3.17.3-windows-amd64.zip (17.09 MB).
+Download of helm-v3.17.3-windows-amd64.zip (17.09 MB) completed.
+Hashes match.
+Extracting C:\Users\amadmin\AppData\Local\Temp\2\chocolatey\kubernetes-helm\3.17.3\helm-v3.17.3-windows-amd64.zip to C:\ProgramData\chocolatey\lib\kubernetes-helm\tools...
+C:\ProgramData\chocolatey\lib\kubernetes-helm\tools
+ ShimGen has successfully created a shim for helm.exe
+ The install of kubernetes-helm was successful.
+  Deployed to 'C:\ProgramData\chocolatey\lib\kubernetes-helm\tools'
+
+Chocolatey installed 1/1 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+PS C:\Users\amadmin>
+PS C:\Users\amadmin>
+
+```
+
+| Validate Post Installation:- |
+| --------- |
+
+```
+PS C:\Users\amadmin> helm version
+version.BuildInfo{Version:"v3.17.3", GitCommit:"e4da49785aa6e6ee2b86efd5dd9e43400318262b", GitTreeState:"clean", GoVersion:"go1.23.7"}
+PS C:\Users\amadmin>
 ```
 
 
