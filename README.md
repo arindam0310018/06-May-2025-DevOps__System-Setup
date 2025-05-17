@@ -7,6 +7,21 @@
 | --------- |
 | Microsoft Windows Server 2022 Datacenter Azure Edition. |
 
+| List of Application Name Installed ? |
+| --------- |
+| 1. Chocolatey. |
+| 2. Winget. |
+| 3. VSCode. |
+| 4. Git. |
+| 5. Pycharm IDE. |
+| 6. Terraform CLI. |
+| 7. AzCLI. |
+| 8. Powrshell Core. |
+| 9. Google Chrome. |
+| 10. kubectl. |
+| 11. Helm. |
+| 12. Kubadmin. |
+
 1. __Install Chocolatey on Windows.__
 
 | Reference Link: https://chocolatey.org/install |
@@ -170,7 +185,7 @@ PS C:\Users\amadmin>
 🔥 Important Note: __Click on the above Link, Scroll down and refer to the comment Section. I have updated all below details there as well.__
 
 ```
-choco install googlechrome -y --ignore-checksums
+choco install googlechrome
 ```
 
 | Google Chrome ERROR Installation Logs:- |
@@ -213,3 +228,12 @@ Failures
 
 PS C:\Users\amadmin>
 ```
+
+| Correct Command:- |
+| --------- |
+
+```
+choco install googlechrome -y --ignore-checksums
+```
+
+
