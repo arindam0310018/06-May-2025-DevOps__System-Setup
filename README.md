@@ -16,7 +16,7 @@
 | 5. Pycharm IDE. |
 | 6. Terraform CLI. |
 | 7. AzCLI. |
-| 8. Powrshell Core. |
+| 8. Powershell Core. |
 | 9. Google Chrome. |
 | 10. Kubectl. |
 | 11. Kubeadmin. |
