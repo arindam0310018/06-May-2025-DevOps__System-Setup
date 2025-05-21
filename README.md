@@ -111,6 +111,8 @@ choco install pycharm-community
 | Reference Link: https://winstall.app/apps/Hashicorp.Terraform |
 | --------- |
 
+🔥 Important Note: __Refer to the Github Link where I have raised issue - https://github.com/microsoft/winget-pkgs/issues/259029__
+
 ```
 winget install --id=Hashicorp.Terraform  -e --accept-source-agreements
 ```
